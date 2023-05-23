@@ -15,26 +15,29 @@ An Instagram clone built using Django and Javascript.
 
 ### Screenshots
 
-| Home Page                   |
-| --------------------------- |
-| ![Landing](./pics/home.png) |
+| Home Page                   | Explore Page                   |
+| --------------------------- | ------------------------------ |
+| ![Landing](./pics/home.png) | ![Explore](./pics/explore.png) |
 
-| Explore Page                   |
-| ------------------------------ |
-| ![Explore](./pics/explore.png) |
+| Post #1                      | Post #2 (with comment)       |
+| ---------------------------- | ---------------------------- |
+| ![Post #1](./pics/post1.png) | ![Post #2](./pics/post2.png) |
 
-| Post #1                      |
-| ---------------------------- |
-| ![Post #1](./pics/post1.png) |
+| Profile Page (user)                         | Profile Page                         |
+| ------------------------------------------- | ------------------------------------ |
+| ![Profile Page (user)](./pics/profile1.png) | ![Profile Page](./pics/profile2.png) |
 
-| Post #2 (with comment)       |
-| ---------------------------- |
-| ![Post #2](./pics/post2.png) |
+### How to Run
 
-| Profile Page (user)                         |
-| ------------------------------------------- |
-| ![Profile Page (user)](./pics/profile1.png) |
+- Install requirements
 
-| Profile Page                         |
-| ------------------------------------ |
-| ![Profile Page](./pics/profile2.png) |
+```sh
+   pip install -r requirements.txt
+```
+
+- Run
+
+```sh
+   python manage.py runserver
+   python3 manage.py runserver # if using python 3
+```
