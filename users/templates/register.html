@@ -1,0 +1,30 @@
+{% extends "userlayout.html" %}
+
+{% block title %} Register - InstaNow {% endblock %}
+
+{% block form %}
+
+<form action = "{% url 'register' %}" method = "post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input class="form-control" autofocus type="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <input class="form-control" autofocus type="text" name="fullname" placeholder="Full Name">
+    </div>
+    <div class="form-group">
+        <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input class="form-control" autofocus type="password" name="password" placeholder="Passoword">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Register">
+    
+</form>
+
+{% if message %}
+        <h6 class = "message"> {{ messagetext }}</h6>
+    {% endif %}
+
+    Already have an account? <a href="{% url 'login' %}">Log In here!</a>
+{% endblock %}

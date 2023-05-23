@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<div class="posts" id="randompostsgird">
+    {% include "_post.html" with posts=randomposts %}
+ </div>
+ <div id="sentinel"></div>
+ <div id="homemodal" class="modal">
+    <div class="modal-content" id="details">
+        <p>Some text in the Modal..</p>
+      </div>
+ </div>
+{% endblock %}

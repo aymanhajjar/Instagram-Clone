@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<script src="../static/homeposts.js"></script>
+
+
+</div>
+{% if thereareposts %}
+<div id="homeposts">
+{% include "_homeposts.html" with posts=followedposts %}
+<div id="sentinel"></div>
+</div>
+{% else %}
+Start following users to see their posts on your timeline!
+{% endif %}
+<div id="homemodal" class="modal">
+    <div class="modal-content" id="details">
+        <p>Some text in the Modal..</p>
+      </div>
+ </div>
+ <!-- <div class = "sidepanel">
+    <div class="thisuserpanel">
+    <img id="panelpic" src="{{ thisuserinfo.profilepic.url }}">
+        <div class="paneldetails">
+        <span class="paneluser"> {{ thisuserinfo.owner.username }}</span><br>
+        <span class="panelname"> {{ thisuserinfo.Name }}</span>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="likers" id="likersmodal">
+    <div class="modal-content" id="likerscontent">
+        <b id="likedby">Liked by</b>
+    </div>
+</div>
+
+{% endblock %}

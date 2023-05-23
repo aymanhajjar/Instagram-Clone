@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+
+{% block body %}
+
+<br>
+<b> Create Post: </b><br><br>
+
+<div class="createform">
+    <form class="form-group" method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="postpic" id="inputimg" style="display:none;"/>
+        <label for="inputimg">Click me to upload image</label><br>
+        {{ imgmsg }}
+        <label class="editlabel">Caption:</label>
+        <textarea class="form-control" name="formcaption" placeholder="Add a caption..."></textarea><br>
+        <label class="editlabel">Tagged User:</label>
+        <select name="tagged">
+            <option value="">None</option>
+            {% for prof in userprofs %}
+            <option value="prof.owner.username">{{prof.owner.username}}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Submit">
+        <div class="scsmsg">{{ msg }}</div>
+        
+    </form>
+    </div>
+
+{% endblock %}

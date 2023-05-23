@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}InstaNow - Home{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+        <link rel="stylesheet" href="{% static 'profile.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    {% csrf_token %}
+    <body>
+        <script language="JavaScript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{% static 'home.js' %}"></script>
+        <script src="{% static 'postprofile.js' %}"></script>
+        <script src="{% static 'exploreposts.js' %}"></script>
+        
+        
+        <div class="header" id="instaheader">
+            <h2 id="instanow"><a class = "ref" href="{% url 'home' %}">InstaNow</a></h2>
+
+            <div class="searchdrop">
+            <input autocomplete="off" class = "form-control" type="text" name = "search" id="txtSearch" onkeyup="makeAjaxRequest()" />
+            <div id="srchdrp">
+            </div>
+            </div>
+
+
+            <div class="headbuttons">
+                <button class="btn" onclick="location.href = '/'"><i class="fa fa-home"></i></button>
+                <!-- <button class="btn" onclick="location.href = 'messaging'"><i class="fas fa-comments"></i></button>  -->
+                <button class="btn" onclick="location.href = `{% url 'explore' %}`"><i class="fas fa-compass"></i></button>
+                <div class="dropdown">
+                    <button class="btn dropbtn" onclick="shownf()"><i class="far fa-heart" style="pointer-events: none;"></i></button>
+                        <div id="notfdropdown" class = "notifdd">
+                            {% if not notf %}
+                                <h6> No new notifications to show</h6>
+                                {% else %}
+                                {% for notif in notf.all %}
+                                <a class="nota" href="javascript:void(0);" onclick="postmodal('{{ notif.post.id }}')"><div class = "notifcontainer">
+                                    <img class="notprofimg" src="{{ notif.triggeredby.profilepic.url}}">
+                                    <span class="nottext">{{ notif.text }}</span>
+                                    <img class="notpostimg" src="{{ notif.post.image.url }}">
+                                </div></a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                </div>
+                <div class = "accdrop">
+                    <button class="btn menubtn" id="profbutton" onclick="showprof()"><img id = "ppic" src="{{ thisuserinfo.profilepic.url }}" style="pointer-events: none;"/></button>
+                        <div id="profilemenu" class = "dropmenu">
+                            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'profile' user.username %}'">Profile</button>
+                            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'create' %}'">Create Post</button>
+                            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'editprofile' user.username %}'">Settings</button>
+                            <button class="btn btn-outline-secondary" onclick="location.href='{% url 'logout' %}'">Logout</button>
+                        </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+        <div id="content">
+            {% block body %}
+            {% endblock %}
+            
+        </div>
+    </body>
+
+    
+
+    
+</html>
+

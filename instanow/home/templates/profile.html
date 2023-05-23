@@ -1,0 +1,87 @@
+{% extends 'home.html' %}
+
+{% block title %} {{ user.username }} {% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+{% csrf_token %}
+ <div class="prof-head">
+     <img src="{{ userinfo.profilepic.url }}" id="prof-img">
+     <div class="prof-info">
+         <div class="top">
+             <span id="un">{{ owner.username }} </span>
+             {% if user == userinfo.owner %}
+             <button class="btn btn-primary" id="editbtn" onclick="location.href='{% url 'editprofile' user.username %}'">Edit Profile</button>
+             <!-- <i class="fas fa-cog"></i> -->
+             {% else %}
+             {% if not followed %}
+             <button class="btn btn-primary" id="followbtn" onclick="follow('{{userinfo.owner.username}}', '{{thisuserinfo.owner.username}}')">Follow</button>
+             <button class="btn btn-primary" id="unfollowbtn" style = "display: none" onclick="unfollow('{{userinfo.owner.username}}', '{{thisuserinfo.owner.username}}')">Unfollow</button>
+             {%  else %}
+             <button class="btn btn-primary" id="unfollowbtn" onclick="unfollow('{{userinfo.owner.username}}', '{{thisuserinfo.owner.username}}')">Unfollow</button>
+             <button class="btn btn-primary" id="followbtn" style = "display: none" onclick="follow('{{userinfo.owner.username}}', '{{thisuserinfo.owner.username}}')">Follow</button>           
+             {% endif %}
+             {% endif %}
+             
+         </div>
+         <div class="counts">
+             <span id="postcount"> <b>{{ postcount }}</b> posts</span>
+             <span id="flwcount"> <b>{{ followercount }}</b> followers</span>
+             <span id="flwingcount"> <b>{{ followingcount }}</b> following</span>
+         </div>
+         <div class="info">
+             {% if userinfo.Name %}
+             <span id="nameofuser"><b>{{ userinfo.Name }}</b><br></span>
+             {% else %}
+             <span id="nameofuser"><b>{{ userinfo.owner.username }}</b><br></span>
+             {% endif %}
+
+             <span id="bio">{{ userinfo.bio }}<br></span>
+
+            {% if user == userinfo.owner %}
+             {% if userinfo.bio == "" %}
+                <a href="{% url 'editprofile' user.username %}">Add a bio to your profile</a><br>
+            {% endif %}
+            {% endif %}
+
+             <span id="link"><a href="{{ userinfo.link }}">{{ userinfo.link }}</a><br></span>
+             {% if userinfo.email %}
+             <button class="btn btn-primary" id="emailbtn" onclick="sendmail('{{userinfo.email}}')">Send Email</button>
+             {% endif %}
+         </div>
+     </div>
+ </div>
+
+ <div class="prof-body">
+    <input type="hidden" id="profileusername" name="variable" value="{{ owner.username }}">
+    <button class="btn btn-sm  tab" id="posts" onclick="switchview('posts')"><i class="fas fa-th-large" ></i> Posts</button>
+    <button class="btn btn-sm  tab" id="tagged" onclick="switchview('tagged')"><i class="fas fa-user-friends"></i> Tagged</button>
+    {% if user == userinfo.owner %}
+    <button class="btn btn-sm tab" id="saved" onclick="switchview('saved')"><i class="fas fa-bookmark"></i> Saved</button>
+    {% endif %}
+ </div>
+ <div class="posts" id="profileposts">
+    {% include "_post.html" with posts=userposts %}
+ </div>
+
+ <div class="posts" id="taggedposts">
+    {% include "_post.html" with posts=taggedposts %}
+ </div>
+
+ <div class="posts" id="savedposts">
+    {% include "_post.html" with posts=savedposts %}
+ </div>
+
+ <div id="sentinel"></div>
+ <div id="homemodal" class="modal">
+    <div class="modal-content" id="details">
+        <p>Some text in the Modal..</p>
+      </div>
+ </div>
+
+ 
+ <script src="../static/posts.js"></script>
+{% endblock %}

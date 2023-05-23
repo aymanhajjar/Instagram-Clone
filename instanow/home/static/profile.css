@@ -1,0 +1,281 @@
+#prof-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  margin-right: 100px;
+  object-fit: cover;
+}
+
+.prof-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-width: 0.1px;
+  border-style: solid;
+  border-color: lightgray;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#un {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+#editbtn {
+  color: black;
+  background-color: #fafafa;
+  border-color: grey;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: 400;
+  border-width: 0.2px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+#flwcount {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.prof-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+#tagged {
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+.tab {
+  color: black;
+  padding: 200px;
+  border-style: none;
+  padding: 10px;
+}
+
+.postimages {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  flex-direction: row;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 7% auto;
+  margin-left: 7%;
+  padding: 20px;
+  height: 75%;
+  max-width: 80%;
+  border: 1px solid #888;
+  float: left;
+}
+
+.postimage {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  max-height: 100%;
+  float: left;
+  object-fit: cover;
+  margin-right: 0px;
+  justify-content: center;
+}
+
+.postdetailscontainer {
+  top: 5;
+  display: flex;
+  height: 90%;
+  float: left;
+  justify-content: center;
+}
+
+.imagepost {
+  width: 60%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.detailscontainer {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+  padding-left: 50px;
+}
+
+#taggedposts {
+  display: none;
+}
+
+#savedposts {
+  display: none;
+}
+
+#end {
+  display: block;
+  margin-left: 50%;
+}
+
+.postusernamemodal {
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.modalpic {
+  margin-right: 10px;
+}
+
+.commentsonpost {
+  display: inline-block;
+  height: 200px;
+  scrollbar-width: 0px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  white-space: nowrap;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.commentpic {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+
+.posttime {
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: gray;
+  font-size: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.postuserandcap {
+  overflow-y: auto;
+  height: 50px;
+}
+
+.commenttime {
+  text-align: left;
+  margin-left: 45px;
+  margin-bottom: 10px;
+  color: gray;
+  font-size: 12px;
+}
+
+#followbtn {
+  color: black;
+  background-color: #fafafa;
+  border-color: grey;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: 400;
+  border-width: 0.2px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+#unfollowbtn {
+  color: black;
+  background-color: #fafafa;
+  border-color: grey;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: 400;
+  border-width: 0.2px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+#link {
+  margin-bottom: 5px;
+}
+
+#emailbtn {
+  margin-bottom: 5px;
+}
+
+.form-control {
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.editform {
+  text-align: center;
+  justify-content: center;
+}
+
+.editpic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.form-group {
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form-control {
+}

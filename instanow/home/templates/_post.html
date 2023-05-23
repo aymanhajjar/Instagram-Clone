@@ -1,0 +1,4 @@
+{% for post in posts %}
+
+<a href="#" onclick="postmodalprofile('{{ post.id }}', '{{ user.username }}')"><image class = "postimages" src="{{ post.image.url }}"></a>
+{% endfor %}

@@ -1,0 +1,55 @@
+{% for post in posts %}
+<div class="postcontainer">
+    <div class="postusername">
+        <img src="{{post.userprofile.profilepic.url}}" class = "postppic">
+        <a class="profilehref" href="profile/{{ post.author.username }}">{{ post.author.username }}</a>
+    </div>
+    <a href="javascript:void(0)" onclick="postmodal('{{ post.id }}', '{{ user.username }}')"><image class = "homepostimages" src="{{ post.image.url }}"></a>
+    <div class="postbuttons">
+        {% if user not in post.likers.all %}
+    <button class="btn" class="actionbutton" id = "notliked{{post.id}}" onclick="likepost('{{ post.id }}', '{{ csrf_token }}')"><span id="likebutton{{post.id}}"><i class="far fa-heart" style="pointer-events: none;"></i></span></button>
+    <button class="btn" class="actionbutton" id = "liked{{post.id}}" style="display:none" onclick="unlikepost('{{ post.id }}', '{{ csrf_token }}')"><span id="likebutton{{post.id}}"><i class="fas fa-heart redheart" style="pointer-events: none;"></i></span></button>
+        {% else %}
+    <button class="btn" class="actionbutton" id = "liked{{post.id}}" onclick="unlikepost('{{ post.id }}', '{{ csrf_token }}')"><span id="likebutton{{post.id}}"><i class="fas fa-heart redheart" style="pointer-events: none;"></i></span></button>
+    <button class="btn" class="actionbutton" id = "notliked{{post.id}}" style="display: none" onclick="likepost('{{ post.id }}', '{{ csrf_token }}')"><span id="likebutton{{post.id}}"><i class="far fa-heart" style="pointer-events: none;"></i></span></button>
+        {% endif %}
+    <button class="btn" onclick="focuscomm('{{post.id}}')"><i class="far fa-comment"></i></button>
+        {% if user not in post.saved_by.all %}
+    <button class="btn savebutton" id = "notsaved{{post.id}}" onclick="savepost('{{ post.id }}', '{{ csrf_token }}')"><i class="far fa-bookmark"></i></button>
+    <button class="btn savebutton" id = "saved{{post.id}}" onclick="unsavepost('{{ post.id }}', '{{ csrf_token }}')" style="display:none"><i class="fas fa-bookmark"></i></button>
+        {% else %}
+    <button class="btn savebutton" id = "saved{{post.id}}" onclick="unsavepost('{{ post.id }}', '{{ csrf_token }}')"><i class="fas fa-bookmark"></i></button>
+    <button class="btn savebutton" id = "notsaved{{post.id}}" onclick="savepost('{{ post.id }}', '{{ csrf_token }}')" style="display:none"><i class="far fa-bookmark"></i></button>
+        {% endif %}
+    </div>
+    <div class="postdetails">
+        <span class="likecount"><a href="javascript:void(0)" class = "profilehref" onclick="showlikers('{{ post.id }}')"><span id="postlikes{{post.id}}">{{ post.like_count }} likes</a></span></span><br>
+        <span class="postuser"><a class="profilehref" href="profile/{{ post.author.username }}">{{ post.author.username }}</a> </span>
+        <span class="postcaption">{{ post.caption }}</span><br>
+        {% if post.comment_count > 2 %}
+        <a href="javascript:void(0)" class = "viewcomments" onclick="postmodal('{{ post.id }}')"><span id="commentcount{{post.id}}">View all {{post.comment_count}} comments</span></a><br>
+        {% endif %}
+        {% for comment in post.comments.all|slice:"0:2" reversed %}
+        <span class="commentowner"><a class="profilehref" href="profile/{{ comment.author.username }}">{{ comment.author.username }}</a> </span>
+        <span class="comment">{{ comment.text }}</span><br>
+        {% endfor %}
+        <span id="extracomment{{post.id}}"></span>
+        
+    </div>
+
+    <div class="posttime">
+        {{ post.get_date_posted }} 
+    </div>
+
+    <div class="addcomment">
+        <form action="javascript:void(0);" name="comment" onsubmit="postcomment('{{post.id}}')">
+            {% csrf_token %}
+            <input autocomplete="off" class = "addcommentfield" type="text" id="commfield{{post.id}}" placeholder="Add a comment..." name="addcomment">
+            <input class="submitcomment" type="submit" value="Post">
+        </form>
+    </div>
+    
+ 
+</div>
+
+{% endfor %}

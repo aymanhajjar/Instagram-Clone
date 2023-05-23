@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<br>
+<b> Edit Profile: </b><br><br>
+
+<div class="chngpic">
+    <img class="editpic" src="{{userinfo.profilepic.url}}">
+    <span class="editusername">{{user.username}}</span>
+</div>
+
+
+<div class="editform">
+<form class="form-group" method="POST" action="{% url 'editprofile' thisuser.username %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="updatepic" id="inputimg" style="display:none;" value="{{ userinfo.profilepic }}"/>
+    <label for="inputimg">Click me to upload image</label><br>
+    <label class="editlabel">Name:</label>
+    <input class="form-control" type="text" name="name" placeholder="Choose a name..." value="{{userinfo.Name}}">
+    <div class="errormsg">{{ namemsg }}</div>
+    <label class="editlabel">Username:</label>
+    <input class="form-control" type="text" name="username" value="{{thisuser.username}}">
+    <div class="errormsg">{{ usermsg }}</div>
+    <label class="editlabel">Website:</label>
+    <input class="form-control" type="text" name="website" placeholder="Add your website..." value="{{userinfo.link}}">
+    <div class="errormsg">{{ linkmsg }}</div>
+    <label class="editlabel">Bio:</label>
+    <textarea class="form-control" name="bio" placeholder="Add a bio...">{{userinfo.bio}}</textarea>
+    <div class="errormsg">{{ biomsg }}</div>
+    <label class="editlabel">Email:</label>
+    <input class="form-control" type="email" name="email" placeholder="Add your email..." value="{{userinfo.email}}">
+    <div class="errormsg">{{ emailmsg }}</div><br>
+    <input type="submit" value="Submit">
+    <div class="scsmsg">{{ successmsg }}</div>
+    
+</form>
+</div>
+
+<div id="homemodal" class="modal">
+    <div class="modal-content" id="details">
+        <p>Some text in the Modal..</p>
+      </div>
+ </div>
+ 
+{% endblock %}

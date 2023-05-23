@@ -1,0 +1,407 @@
+
+.header {
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border-style: solid;
+    border-width: 0.5px;
+    background-color: white;
+    
+}
+.ref {
+    text-decoration: none;
+    color:black;
+}
+.ref:hover {
+    color:dimgray;
+    text-decoration: none;
+}
+#instanow {
+    font-family:cursive;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin-right: auto;
+    float: left;
+    text-align: left;
+}
+
+.headbuttons {
+    float: right;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    
+  }
+
+.sticky + .content {
+    padding-top: 400px;
+    background-color: white;
+}
+
+#content {
+    background-color:#fafafa;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+.notifdd {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 350px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    padding: 10px;
+    overflow: auto;
+    max-height: 230px;
+    
+}
+.show {display:block;}
+
+#ppic {
+    width:30px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.accdrop {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropmenu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    padding: 10px;
+    
+}
+.show {display:block;}
+.hide {display: none;}
+
+.btn:focus {
+    border-color: black;
+    border-start-end-radius: 30px;
+}
+
+.btn-outline-secondary{
+    padding: 8x;
+    margin: 5px;
+    width: 100%;
+}
+
+.homepostimages {
+   width: 100%;
+
+}
+
+
+#homeposts{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+.postusername{
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.postcontainer {
+    max-width: 40%;
+    max-height: auto;
+    flex-direction: column;
+    display:block;
+    margin-left: 20%;
+    background-color: white;
+    border-width: 0.5px;
+    border-color: gray;
+    border-style: solid;
+    margin-top: 10px;
+}
+
+.profilehref {
+    color: black;
+    font-weight: bold;
+}
+
+.postppic{
+    width:30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.postbuttons {
+    text-align: left;
+}
+
+.postdetails {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.postuser {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.addcomment{
+    text-align: left;
+    padding: 10px;
+}
+
+.addcommentfield{
+    width: 90%;
+    border-style: none;
+}
+
+.submitcomment{
+    border-style: none;
+    padding: 10px;
+    color: skyblue;
+    font-weight: bold;
+    background-color: white;
+
+}
+
+.addcommentfield:focus{
+    outline: none;
+}
+
+.likecount {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.comment {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.commentowner {
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.viewcomments{
+    color: gray;
+}
+
+#likersmodal {
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4);
+}
+
+#likerscontent {
+    background-color: #fefefe;
+    display:flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    margin-left: 40%;
+    padding: 20px;
+    height: auto;
+    border: 1px solid #888;
+    width: 30%;
+    margin-right:40px;
+    border-radius: 10px;
+}
+
+.likerpic {
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.likehref{
+    color: black;
+    width: 90%;
+}
+.likehref:hover {
+    background-color: lightgray;
+    color: black;
+    text-decoration: none;
+    border-radius: 20px;
+    width: 90%;
+}
+
+.likecontainer {
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    width: 90%;
+}
+
+#likedby{
+    margin-bottom: 15px;
+    font-family:sans-serif
+}
+
+.redheart{
+    color: red;
+}
+
+.actionbutton:focus{
+    border-style: none;
+    outline: none;
+}
+
+.submitcomment:focus{
+    outline: none;
+}
+
+.notprofimg {
+    width: 40px;
+    height:40px;
+    border-radius: 40px;
+    margin-right: 10px;
+}
+
+.notpostimg{
+    width: 40px;
+    height:40px;
+    position: absolute;
+    right: 30px;
+}
+
+.nottext {
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.notifcontainer{
+    margin-top: 10px;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+}
+.nota:hover {
+    background-color: gray;
+    border-radius: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.background {
+    background-color:#fafafa;
+}
+
+.sidepanel{
+    margin-left: 70%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    background-color: lightgray;
+}
+
+.thisuserpanel {
+    top:200px;
+    padding-top: 0px;
+}
+
+#panelpic {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    margin-right: 20px;
+}
+
+.paneluser{
+    font-weight: bold;
+}
+
+#srchdrp{
+    display: none;
+    background-color: #f1f1f1;
+    position: absolute;
+    min-width: 350px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    padding: 10px;
+    overflow: auto;
+    max-height: 230px;
+}
+.show {display:block;}
+.hide {display: none;}
+
+.searchdrop {
+    position: relative;
+    display: inline-block;
+    margin-right: auto;
+}
+.show {display:block;}
+
+#txtSearch {
+    margin-right: auto;
+    min-width:350px;
+    text-align: left;
+    background-color: #fafafa;
+    border-radius: 10px;
+}
+
+.searchhref {
+    color: black;
+}
+
+.searchhref:hover{
+    background-color:lightslategray;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    margin: 5px;
+}
+
+.searchcontainer{
+    background-color: lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.scsmsg{
+    margin-top: 10px;
+    color: green
+}
+
+.errormsg{
+    margin-top: 10px;
+    color: indianred;
+}
